@@ -1,14 +1,31 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="dark" text-center="">
     <ion-title>
-      Ionic Blank
+      8Gag
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+
+  <ion-card>
+    <img src="https://i2.wp.com/culturageek.com.ar/wp-content/uploads/2017/11/Culturageek.com_.ar-Boku-No-Hero-Academia-S3.jpg?fit=1000%2C600">
+    <ion-card-content>
+      <ion-card-title>Post 1</ion-card-title>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col text-right="">
+        <button ion-button clear small color="primary" icon-left>
+          <ion-icon name="share-alt"></ion-icon>
+          Compartir
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+
+  <ion-fab bottom right>
+    <button ion-fab color="danger" (click)="mostrarModal()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 </ion-content>

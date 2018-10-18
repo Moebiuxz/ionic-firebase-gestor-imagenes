@@ -1,0 +1,51 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons>
+      <button ion-button="" (click)="cerrarModal()">
+        Cerrar
+      </button>
+    </ion-buttons>
+
+    <ion-title text-center="">Crear Post</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Titulo</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <img src="https://i2.wp.com/culturageek.com.ar/wp-content/uploads/2017/11/Culturageek.com_.ar-Boku-No-Hero-Academia-S3.jpg?fit=1000%2C600">
+    </ion-item>
+  </ion-list>
+  <ion-grid>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button
+                block
+                icon-left="">
+          <ion-icon name="photos"></ion-icon>
+          Seleccionar
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button
+                block
+                icon-left="">
+          <ion-icon name="camera"></ion-icon>
+          Camara
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>
