@@ -8,6 +8,20 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import {SubirPage} from "../pages/subir/subir";
 
+// Firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyAoV4NyZhB1_lixk_V6Alge_0_3-SG8F_k",
+  authDomain: "sistema-riego-iot.firebaseapp.com",
+  databaseURL: "https://sistema-riego-iot.firebaseio.com",
+  projectId: "sistema-riego-iot",
+  storageBucket: "sistema-riego-iot.appspot.com",
+  messagingSenderId: "705170471345"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -16,7 +30,10 @@ import {SubirPage} from "../pages/subir/subir";
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -27,6 +44,7 @@ import {SubirPage} from "../pages/subir/subir";
   providers: [
     StatusBar,
     SplashScreen,
+    AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
