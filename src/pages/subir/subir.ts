@@ -6,7 +6,7 @@ import {ViewController} from "ionic-angular";
   templateUrl: 'subir.html',
 })
 export class SubirPage {
-
+  titulo: string;
   constructor(private viewCtrl: ViewController) {
   }
 
