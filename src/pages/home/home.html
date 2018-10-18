@@ -8,10 +8,10 @@
 
 <ion-content>
 
-  <ion-card>
-    <img src="https://i2.wp.com/culturageek.com.ar/wp-content/uploads/2017/11/Culturageek.com_.ar-Boku-No-Hero-Academia-S3.jpg?fit=1000%2C600">
+  <ion-card *ngFor="let post of posts | async">
+    <img [src]="post.img">
     <ion-card-content>
-      <ion-card-title>Post 1</ion-card-title>
+      <ion-card-title>{{post.titulo}}</ion-card-title>
     </ion-card-content>
 
     <ion-row>
