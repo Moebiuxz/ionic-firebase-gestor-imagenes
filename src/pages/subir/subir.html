@@ -9,6 +9,12 @@
     </ion-buttons>
 
     <ion-title text-center="">{{titulo | placeHolder: 'Crear nuevo post'}}</ion-title>
+
+    <ion-buttons end>
+      <button ion-button="" (click)="crearPost()">
+        Crear post
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -22,15 +28,15 @@
       <ion-input type="text" [(ngModel)]="titulo"></ion-input>
     </ion-item>
 
-    <ion-item>
-      <img src="https://i2.wp.com/culturageek.com.ar/wp-content/uploads/2017/11/Culturageek.com_.ar-Boku-No-Hero-Academia-S3.jpg?fit=1000%2C600">
+    <ion-item *ngIf="imagenPreview">
+      <img [src]="imagenPreview">
     </ion-item>
   </ion-list>
   <ion-grid>
 
     <ion-row>
       <ion-col>
-        <button ion-button
+        <button ion-button (click)="seleccionarFoto()"
                 block
                 icon-left="">
           <ion-icon name="photos"></ion-icon>
@@ -38,7 +44,7 @@
         </button>
       </ion-col>
       <ion-col>
-        <button ion-button
+        <button ion-button (click)="mostrarCamara()"
                 block
                 icon-left="">
           <ion-icon name="camera"></ion-icon>
