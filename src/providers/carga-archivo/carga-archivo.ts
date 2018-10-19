@@ -5,8 +5,10 @@ import {ToastController} from "ionic-angular";
 
 @Injectable()
 export class CargaArchivoProvider {
+  imagenes: ArchivoSubir[] = [];
 
-  constructor(private toastCtrl: ToastController) {
+  constructor(private toastCtrl: ToastController,
+              public afDB: AngularFireDatabase) {
 
   }
 
@@ -33,11 +35,29 @@ export class CargaArchivoProvider {
           // Correcto
           console.log('Archivo subido');
           this.mostrarToast('Imagen cargada correctamente');
+
+          let url = uploadTask.snapshot.downloadURL;
+
+          this.crearPost(archivo.titulo, url, nombreArchivo);
           resolve();
         }
         )
     });
     return promesa
+  }
+
+  private crearPost( titulo:string, url: string, nombreArchivo:string ) {
+    let post: ArchivoSubir = {
+      img: url,
+      titulo: titulo,
+      key: nombreArchivo
+    };
+    console.log(JSON.stringify(post));
+
+    // id por defecto de firebase
+    // this.afDB.list('/post').push(post);
+    this.afDB.object(`/post/${nombreArchivo}`).update(post);
+    this.imagenes.push(post);
   }
 
   mostrarToast(mensaje: string) {

@@ -9,8 +9,8 @@ import {CargaArchivoProvider} from "../../providers/carga-archivo/carga-archivo"
   templateUrl: 'subir.html',
 })
 export class SubirPage {
-  titulo: string;
-  imagenPreview: string;
+  titulo: string = '';
+  imagenPreview: string = '';
   imagen64: string;
 
   constructor(private viewCtrl: ViewController,
@@ -64,6 +64,7 @@ export class SubirPage {
       img: this.imagen64,
       titulo: this.titulo
     };
-    this.cargaArchivoProvider.cargarImagenFirebase(archivo);
+
+    this.cargaArchivoProvider.cargarImagenFirebase(archivo).then(() => this.cerrarModal());
   }
 }
